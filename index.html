@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Comme Chez Nous Accra</title>
+<meta name="description" content="Comme Chez Nous: home-style Beninese food in Accra. Dine in, take away or delivery. Cuisine béninoise à Accra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: menu-first restaurant. A full-bleed triptych of their own plates, a chalkboard "today's menu", a swipe strip of dishes, one big quote, how to eat, visit. Colours sampled from their food: pepper-sauce red-brown, leaf green, pâte cream, chalkboard. Bilingual EN/FR. */
+:root {
+  --cream: #f3ead9;
+  --paper: #fbf6ec;
+  --ink: #2a1a12;
+  --soft: #6b5a4c;
+  --sauce: #a84f22;
+  --sauce-deep: #7c3814;
+  --leaf: #5c7a1e;
+  --board: #20251f;
+  --chalk: #f1ece0;
+  --chalk-soft: #b9b5a8;
+  --line: #e2d5bf;
+  --serif: "Young Serif", Georgia, serif;
+  --hand: "Kalam", "Segoe Print", cursive;
+  --text: "Inter", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--text); }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sauce); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.demo { background: var(--ink); color: var(--cream); font-size: 13px; text-align: center; padding-block: 8px; padding-left: 16px; padding-right: 16px; }
+
+/* Poster hero */
+.poster { position: relative; color: #fff; background: var(--ink); }
+.trip { display: grid; grid-template-columns: 1fr 1fr 1fr; height: clamp(520px, 78vh, 760px); }
+.trip img { width: 100%; height: 100%; object-fit: cover; }
+.poster::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,12,8,.55) 0%, rgba(20,12,8,.15) 35%, rgba(20,12,8,.82) 100%); pointer-events: none; }
+.poster .bar { position: absolute; z-index: 2; inset: 0 0 auto 0; }
+.poster .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 18px; }
+.mark { font: 400 22px/1 var(--serif); }
+.pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.14); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 7px 12px; font-size: 14px; font-weight: 600; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #aaa; }
+.pill.open .dot { background: #4cd17f; }
+.pill.closed .dot { background: #ff6a55; }
+.barright { display: flex; align-items: center; gap: 12px; }
+.lang { display: inline-flex; border: 1.5px solid rgba(255,255,255,.7); border-radius: 999px; overflow: hidden; }
+.lang button { border: 0; background: transparent; color: #fff; font: 700 13px var(--text); padding: 7px 12px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: #fff; color: var(--ink); }
+.poster .copy { position: absolute; z-index: 2; inset: auto 0 0 0; }
+.poster .copy .wrap { padding-block: 0 46px; }
+.hand { font: 700 26px/1.1 var(--hand); color: #ffd9b8; margin: 0 0 6px; }
+.poster h1 { font: 400 clamp(54px, 9vw, 128px)/.95 var(--serif); margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+.poster p.sub { font-size: 19px; max-width: 46ch; color: #f4e9dc; margin: 14px 0 22px; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 22px; border-radius: 10px; font-weight: 700; text-decoration: none; border: 2px solid currentColor; }
+.btn.sauce { background: var(--sauce); border-color: var(--sauce); color: #fff; }
+.btn.sauce:hover { background: var(--sauce-deep); border-color: var(--sauce-deep); }
+.btn.light { color: #fff; }
+.btn.light:hover { background: rgba(255,255,255,.12); }
+.btn.dark { color: var(--ink); }
+.btn.dark:hover { color: var(--sauce); }
+
+/* Chalkboard */
+.boardsec { padding-block: 70px; background: var(--cream); }
+.board { background: var(--board); color: var(--chalk); border-radius: 18px; padding: clamp(24px, 5vw, 56px); position: relative; box-shadow: inset 0 0 0 10px #3b2c20, inset 0 0 0 12px #5a4430, 0 24px 50px rgba(42,26,18,.25);
+  background-image: radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px); background-size: 4px 4px; }
+.board h2 { font: 700 clamp(40px, 6vw, 68px)/1 var(--hand); margin: 0 0 6px; text-align: center; }
+.board .lead { text-align: center; font: 400 20px/1.3 var(--hand); color: var(--chalk-soft); margin: 0 0 30px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 56px; }
+.cols h3 { font: 700 26px/1.1 var(--hand); color: #f2c27a; margin: 0 0 8px; border-bottom: 2px dashed rgba(241,236,224,.25); padding-bottom: 6px; }
+.cols ul { list-style: none; padding: 0; margin: 0 0 18px; }
+.cols li { display: flex; align-items: baseline; gap: 10px; font: 400 22px/1.5 var(--hand); }
+.cols li::after { content: ""; flex: 1; border-bottom: 2px dotted rgba(241,236,224,.25); order: 1; }
+.cols li span:last-child { order: 2; color: var(--chalk-soft); font-size: 18px; }
+.board .foot { text-align: center; font: 400 20px/1.4 var(--hand); color: var(--chalk-soft); margin: 18px 0 0; }
+
+/* Swipe strip */
+.strip { padding-block: 70px 30px; }
+.strip .head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+.eyebrow { font: 700 24px/1 var(--hand); color: var(--sauce); margin: 0 0 4px; }
+h2.t { font: 400 clamp(38px, 5vw, 60px)/1 var(--serif); margin: 0; }
+.hint { color: var(--soft); font-size: 15px; }
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 300px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; }
+.rail figure { margin: 0; scroll-snap-align: start; }
+.rail img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 16px; }
+.rail figcaption { padding: 10px 2px 0; }
+.rail figcaption b { display: block; font: 400 21px/1.2 var(--serif); }
+.rail figcaption span { color: var(--soft); font-size: 15px; }
+
+/* Quote */
+.quote { background: var(--sauce); color: #fff; }
+.quote .wrap { padding-block: 72px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
+.quote .q { font: 400 120px/.7 var(--serif); color: #ffd9b8; }
+.quote p { font: 400 clamp(28px, 4.2vw, 50px)/1.2 var(--serif); margin: 0; text-wrap: balance; }
+.quote cite { display: block; margin-top: 14px; font-style: normal; color: #ffe2cc; }
+
+/* Ways + reviews */
+.ways { padding-block: 70px; }
+.ways ol { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.ways li { padding: 20px 22px 6px 0; }
+.ways li + li { border-left: 1px solid var(--line); padding-left: 22px; }
+.ways b { display: block; font: 400 28px/1.1 var(--serif); margin-bottom: 6px; color: var(--leaf); }
+.ways p { margin: 0; color: var(--soft); }
+
+.notes { padding-block: 10px 70px; }
+.notes .row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 26px; }
+.note { background: #fff8e8; border: 1px solid var(--line); padding: 22px 22px 18px; border-radius: 4px; transform: rotate(-1deg); box-shadow: 0 8px 20px rgba(42,26,18,.08); }
+.note:nth-child(2) { transform: rotate(1.2deg); background: #f4f7e6; }
+.note:nth-child(3) { transform: rotate(-.6deg); }
+.note p { margin: 0 0 10px; font: 400 22px/1.35 var(--hand); }
+.note span { color: var(--soft); font-size: 14px; }
+.score { display: inline-flex; align-items: baseline; gap: 10px; }
+.score b { font: 400 54px/1 var(--serif); color: var(--sauce); }
+
+/* Visit */
+.visit { background: var(--ink); color: var(--cream); }
+.visit .wrap { padding-block: 64px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: start; }
+.visit h2 { font: 400 clamp(38px, 5vw, 60px)/1 var(--serif); margin: 0 0 14px; }
+.visit .addr { font-size: 21px; font-weight: 600; margin: 0 0 4px; }
+.visit .soft { color: #cbb9a6; }
+.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours td { padding: 9px 0; border-bottom: 1px solid rgba(243,234,217,.15); }
+.hours td:last-child { text-align: right; }
+.hours tr.today td { color: #ffc28f; font-weight: 700; }
+footer { background: var(--ink); color: #a8978a; font-size: 14px; padding-block: 0 110px; }
+footer .wrap { border-top: 1px solid rgba(243,234,217,.15); padding-block: 22px 0; }
+
+.dock { position: fixed; left: 0; right: 0; bottom: 0; display: none; gap: 10px; padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: rgba(251,246,236,.96); backdrop-filter: blur(8px); border-top: 1px solid var(--line); z-index: 5; }
+.dock .btn { flex: 1; padding: 12px; }
+
+@media (max-width: 900px) {
+  .trip { grid-template-columns: 1fr 1fr; height: 560px; }
+  .trip img:last-child { display: none; }
+  .cols, .ways ol, .notes .row, .visit .wrap { grid-template-columns: 1fr; }
+  .ways li + li { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .poster .mark { display: none; }
+  .poster::after { background: linear-gradient(180deg, rgba(20,12,8,.6) 0%, rgba(20,12,8,.55) 40%, rgba(20,12,8,.88) 100%); }
+  .dock { display: flex; }
+}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<div class="demo" data-fr="Site de démonstration fait pour Comme Chez Nous. Plats et prix à confirmer par vous.">Demo website made for Comme Chez Nous. Dish names and prices to be confirmed by you.</div>
+
+<header class="poster" id="top">
+  <div class="trip" aria-hidden="true">
+    <img src="img/stew.webp" alt="" style="object-position:50% 70%">
+    <img src="img/chicken.webp" alt="" style="object-position:50% 60%">
+    <img src="img/greens.webp" alt="" style="object-position:50% 50%">
+  </div>
+  <div class="bar"><div class="wrap">
+    <span class="mark">Comme Chez Nous</span>
+    <div class="barright">
+      <span class="pill" id="pill"><span class="dot"></span><span id="pillText">Open</span></span>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="btnEn" aria-pressed="true">EN</button>
+        <button type="button" id="btnFr" aria-pressed="false">FR</button>
+      </div>
+    </div>
+  </div></div>
+  <div class="copy"><div class="wrap">
+    <p class="hand" data-fr="Cuisine béninoise · Accra">Beninese cooking · Accra</p>
+    <h1>Comme Chez Nous</h1>
+    <p class="sub" data-fr="« Comme à la maison. » Des plats béninois faits maison, cuisinés frais chaque jour. Sur place, à emporter ou livrés.">"Just like home." Home-style Beninese dishes, cooked fresh every day. Eat in, take away, or have it delivered.</p>
+    <div class="ctas">
+      <a class="btn sauce" href="https://wa.me/233271889710" target="_blank" rel="noopener" data-wa data-fr="Commander sur WhatsApp">Order on WhatsApp</a>
+      <a class="btn light" href="#menu" data-fr="Voir l'ardoise">See today's board</a>
+    </div>
+  </div></div>
+</header>
+
+<section class="boardsec" id="menu">
+  <div class="wrap">
+    <div class="board">
+      <h2 data-fr="L'ardoise du jour">Today's board</h2>
+      <p class="lead" data-fr="Demandez ce qui mijote aujourd'hui sur WhatsApp">Ask what's cooking today on WhatsApp</p>
+      <div class="cols">
+        <div>
+          <h3 data-fr="Les sauces">Sauces &amp; stews</h3>
+          <ul>
+            <li><span data-fr="Ragoût de viande">Meat stew</span><span>GH₵ —</span></li>
+            <li><span data-fr="Sauce feuille">Green leaf sauce</span><span>GH₵ —</span></li>
+            <li><span data-fr="Sauce au poisson">Fish &amp; okra sauce</span><span>GH₵ —</span></li>
+          </ul>
+          <h3 data-fr="Grillades">From the grill</h3>
+          <ul>
+            <li><span data-fr="Poulet grillé">Grilled chicken</span><span>GH₵ —</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-fr="Accompagnements">On the side</h3>
+          <ul>
+            <li><span data-fr="Pâte blanche">White pâte</span><span>GH₵ —</span></li>
+            <li><span data-fr="Pâte de maïs">Corn pâte</span><span>GH₵ —</span></li>
+            <li><span data-fr="Boules vapeur">Steamed balls</span><span>GH₵ —</span></li>
+          </ul>
+          <h3 data-fr="Autres plats">Also</h3>
+          <ul>
+            <li><span data-fr="Spaghetti au poisson">Spaghetti &amp; fish</span><span>GH₵ —</span></li>
+            <li><span data-fr="Salade fraîche">Fresh salad</span><span>GH₵ —</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="foot" data-fr="Noms et prix à confirmer par le restaurant">Dish names and prices to be confirmed by the restaurant</p>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow" data-fr="sortis de notre cuisine">straight from our kitchen</p><h2 class="t" data-fr="Nos plats">Our plates</h2></div>
+      <span class="hint" data-fr="Faites glisser →">Swipe →</span>
+    </div>
+    <div class="rail" tabindex="0" aria-label="Dishes">
+      <figure><img src="img/stew.webp" alt="Meat stew with garden eggs" loading="lazy"><figcaption><b data-fr="Ragoût de viande">Meat stew</b><span data-fr="Viande tendre, sauce riche">Tender meat, rich sauce</span></figcaption></figure>
+      <figure><img src="img/greens.webp" alt="Green leaf sauce with white pâte" loading="lazy" style="object-position:50% 40%"><figcaption><b data-fr="Sauce feuille &amp; pâte">Leaf sauce &amp; pâte</b><span data-fr="Le goût de la maison">The taste of home</span></figcaption></figure>
+      <figure><img src="img/chicken.webp" alt="Grilled chicken with corn pâte" loading="lazy"><figcaption><b data-fr="Poulet grillé">Grilled chicken</b><span data-fr="Avec pâte de maïs et piment">With corn pâte and pepper</span></figcaption></figure>
+      <figure><img src="img/sauce.webp" alt="Fish and okra sauce" loading="lazy" style="object-position:50% 35%"><figcaption><b data-fr="Sauce au poisson">Fish &amp; okra</b><span data-fr="Poisson, gombo, aubergines">Fish, okra, garden eggs</span></figcaption></figure>
+      <figure><img src="img/salad.webp" alt="Fresh salad with steamed balls" loading="lazy"><figcaption><b data-fr="Salade &amp; boules vapeur">Salad &amp; steamed balls</b><span data-fr="Frais et léger">Fresh and light</span></figcaption></figure>
+      <figure><img src="img/spaghetti.webp" alt="Spaghetti with fish and onions" loading="lazy" style="object-position:50% 40%"><figcaption><b data-fr="Spaghetti au poisson">Spaghetti &amp; fish</b><span data-fr="Avec oignons frais">With fresh onions</span></figcaption></figure>
+      <figure><img src="img/dumplings.webp" alt="Packed takeaway dishes" loading="lazy"><figcaption><b data-fr="À emporter">Takeaway packs</b><span data-fr="Prêts à livrer">Ready for delivery</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="quote">
+  <div class="wrap">
+    <span class="q" aria-hidden="true">“</span>
+    <div>
+      <p data-fr="J'ai mangé au Ghana et j'ai cru manger chez moi, au Bénin.">I ate in Ghana and I thought I was eating at home in Benin.</p>
+      <cite data-fr="Avis Google">Google review</cite>
+    </div>
+  </div>
+</div>
+
+<section class="ways">
+  <div class="wrap">
+    <p class="eyebrow" data-fr="comme vous voulez">however you like</p>
+    <h2 class="t" data-fr="Trois façons de manger">Three ways to eat</h2>
+    <ol>
+      <li><b data-fr="Sur place">Eat in</b><p data-fr="Installez-vous, comme à la maison.">Sit down and eat, just like at home.</p></li>
+      <li><b data-fr="À emporter">Take away</b><p data-fr="Commandez, passez prendre, régalez-vous.">Order ahead, pick up, enjoy.</p></li>
+      <li><b data-fr="Livraison">Delivery</b><p data-fr="Sans contact et à l'heure.">No-contact delivery, on time.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="notes">
+  <div class="wrap">
+    <div class="score"><b>5.0</b><span data-fr="★★★★★ sur 17 avis Google">★★★★★ from 17 Google reviews</span></div>
+    <div class="row">
+      <div class="note"><p data-fr="« Depuis le Ghana, je savoure les plats de mon pays, le Bénin. »">"From Ghana, I enjoy the dishes of my country, Benin."</p><span data-fr="Avis Google">Google review</span></div>
+      <div class="note"><p data-fr="« La nourriture est de grande qualité et la livraison est excellente. »">"The food is high quality and the delivery is excellent."</p><span data-fr="Avis Google">Google review</span></div>
+      <div class="note"><p data-fr="« Une expérience culinaire exceptionnelle, dans une ambiance chaleureuse. »">"An exceptional culinary experience, in a warm atmosphere."</p><span data-fr="Avis Google">Google review</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:#ffc28f" data-fr="nous trouver">come and eat</p>
+      <h2 data-fr="17 Nae Street, Accra">17 Nae Street, Accra</h2>
+      <p class="soft"><span data-fr="Code Plus">Plus code</span> JP7V+M6 · <span data-fr="Téléphone">Phone</span> 027 188 9710</p>
+      <div class="ctas" style="margin-top:20px">
+        <a class="btn sauce" href="https://www.google.com/maps/search/?api=1&query=COMME%20CHEZ%20NOUS%20RESTAURANT%2017%20Nae%20ST%20Accra" target="_blank" rel="noopener" data-fr="Itinéraire">Get directions</a>
+        <a class="btn light" href="tel:+233271889710" data-fr="Appeler">Call</a>
+      </div>
+    </div>
+    <table class="hours" aria-label="Opening hours"><tbody id="hoursBody"></tbody></table>
+  </div>
+</section>
+
+<footer><div class="wrap">© Comme Chez Nous · <span data-fr="Cuisine béninoise à Accra">Beninese food in Accra</span></div></footer>
+
+<div class="dock">
+  <a class="btn sauce" href="https://wa.me/233271889710" target="_blank" rel="noopener" data-wa>WhatsApp</a>
+  <a class="btn dark" href="tel:+233271889710" data-fr="Appeler">Call</a>
+</div>
+
+<script>
+(() => {
+  const els = [...document.querySelectorAll('[data-fr]')];
+  els.forEach(e => { e.dataset.en = e.innerHTML; });
+  const DAYS = { en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], fr: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'] };
+  const L = {
+    en: { closed: 'Closed', open: 'Open now', opens: 'Opens', closedOpens: 'Closed · opens', todayTag: ' (today)', wa: 'Hello%20Comme%20Chez%20Nous%2C%20I%27d%20like%20to%20order' },
+    fr: { closed: 'Fermé', open: 'Ouvert', opens: 'Ouvre à', closedOpens: 'Fermé · ouvre', todayTag: " (aujourd'hui)", wa: 'Bonjour%20Comme%20Chez%20Nous%2C%20je%20voudrais%20commander' }
+  };
+  // Hours from Google Maps: Mon–Sat 9 am – 6 pm, Sunday closed. Accra is on UTC.
+  const H = { 0: null, 1: [540, 1080], 2: [540, 1080], 3: [540, 1080], 4: [540, 1080], 5: [540, 1080], 6: [540, 1080] };
+  const fmt = (mm, lang) => { const hr = Math.floor(mm / 60), mi = mm % 60; if (lang === 'fr') return hr + 'h' + (mi ? String(mi).padStart(2, '0') : ''); return (hr > 12 ? hr - 12 : hr) + (mi ? ':' + String(mi).padStart(2, '0') : '') + (hr >= 12 ? ' pm' : ' am'); };
+  function render(lang) {
+    const t = L[lang], now = new Date(), d = now.getUTCDay(), m = now.getUTCHours() * 60 + now.getUTCMinutes(), h = H[d];
+    const text = k => H[k] === null ? t.closed : fmt(H[k][0], lang) + ' – ' + fmt(H[k][1], lang);
+    const open = !!h && m >= h[0] && m < h[1];
+    const pill = document.getElementById('pill'); pill.classList.remove('open', 'closed'); pill.classList.add(open ? 'open' : 'closed');
+    let s;
+    if (open) s = t.open;
+    else if (h && m < h[0]) s = t.opens + ' ' + fmt(h[0], lang);
+    else { let n = (d + 1) % 7; while (H[n] === null) n = (n + 1) % 7; s = t.closedOpens + ' ' + (n === (d + 1) % 7 ? '' : DAYS[lang][n].slice(0, 3) + ' ') + fmt(H[n][0], lang); }
+    document.getElementById('pillText').textContent = s;
+    const body = document.getElementById('hoursBody'); body.innerHTML = '';
+    for (let i = 1; i <= 7; i++) { const k = i % 7, tr = document.createElement('tr'); if (k === d) tr.className = 'today'; tr.innerHTML = '<td>' + DAYS[lang][k] + (k === d ? t.todayTag : '') + '</td><td>' + text(k) + '</td>'; body.appendChild(tr); }
+    document.querySelectorAll('[data-wa]').forEach(a => { a.href = 'https://wa.me/233271889710?text=' + t.wa; });
+  }
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    els.forEach(e => { e.innerHTML = lang === 'fr' ? e.dataset.fr : e.dataset.en; });
+    document.getElementById('btnEn').setAttribute('aria-pressed', String(lang === 'en'));
+    document.getElementById('btnFr').setAttribute('aria-pressed', String(lang === 'fr'));
+    render(lang);
+    try { localStorage.setItem('ccn-lang', lang); } catch (e) {}
+  }
+  document.getElementById('btnEn').addEventListener('click', () => setLang('en'));
+  document.getElementById('btnFr').addEventListener('click', () => setLang('fr'));
+  let start = 'en';
+  try { start = localStorage.getItem('ccn-lang') || ((navigator.language || '').startsWith('fr') ? 'fr' : 'en'); } catch (e) {}
+  setLang(start);
+})();
+</script>
+
+</body>
+</html>
